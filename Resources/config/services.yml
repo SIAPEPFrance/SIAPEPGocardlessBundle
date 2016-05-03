@@ -1,0 +1,91 @@
+# Services Configuration
+services:
+
+    app.siapep_gocardless_bundle_customers:
+       class: SIAPEP\GocardlessBundle\Services\customers
+       arguments: ["@doctrine.orm.entity_manager"]
+       tags:
+         - { name: siapep_gocardless_bundle_customers.customer_create, method: create, alias: create_customer }
+         - { name: siapep_gocardless_bundle_customers.customer_lists, method: lists, alias: list_customers }
+         - { name: siapep_gocardless_bundle_customers.customer_show, method: show, alias: show_a_customer }
+         - { name: siapep_gocardless_bundle_customers.customer_update, method: update, alias: update_a_customer }
+
+    app.siapep_gocardless_bundle_customer_bank_account:
+       class: SIAPEP\GocardlessBundle\Services\customerbankaccount
+       arguments: ["@doctrine.orm.entity_manager"]
+       tags:
+         - { name: siapep_gocardless_bundle_customer_bank_account.customer_bank_account_create, method: create, alias: create_customer_bank_account }
+         - { name: siapep_gocardless_bundle_customer_bank_account.customer_bank_account_lists, method: lists, alias: list_customer_bank_accounts }
+         - { name: siapep_gocardless_bundle_customer_bank_account.customer_bank_account_show, method: show, alias: show_a_customer_bank_account }
+         - { name: siapep_gocardless_bundle_customer_bank_account.customer_bank_account_update, method: update, alias: update_a_customer_bank_account }
+         - { name: siapep_gocardless_bundle_customer_bank_account.customer_bank_account_disable, method: disable, alias: disable_a_customer_bank_account }
+
+    app.siapep_gocardless_bundle_mandates:
+       class: SIAPEP\GocardlessBundle\Services\mandates
+       arguments: ["@doctrine.orm.entity_manager"]
+       tags:
+         - { name: siapep_gocardless_bundle_mandates.mandate_create, method: create, alias: create_mandate }
+         - { name: siapep_gocardless_bundle_mandates.mandate_lists, method: lists, alias: list_mandates }
+         - { name: siapep_gocardless_bundle_mandates.mandate_show, method: show, alias: show_a_mandate }
+         - { name: siapep_gocardless_bundle_mandates.mandate_update, method: update, alias: update_a_mandate }
+         - { name: siapep_gocardless_bundle_mandates.mandate_cancel, method: cancel, alias: cancel_a_mandate }
+         - { name: siapep_gocardless_bundle_mandates.mandate_reinstate, method: reinstate, alias: reinstate_a_mandate }
+
+    app.siapep_gocardless_bundle_payments:
+       class: SIAPEP\GocardlessBundle\Services\payments
+       arguments: ["@doctrine.orm.entity_manager"]
+       tags:
+         - { name: siapep_gocardless_bundle_payments.payment_create, method: create, alias: create_payment }
+         - { name: siapep_gocardless_bundle_payments.payment_lists, method: lists, alias: list_payments }
+         - { name: siapep_gocardless_bundle_payments.payment_show, method: show, alias: show_a_payment }
+         - { name: siapep_gocardless_bundle_payments.payment_update, method: update, alias: update_a_payment }
+         - { name: siapep_gocardless_bundle_payments.payment_cancel, method: cancel, alias: cancel_a_payment }
+         - { name: siapep_gocardless_bundle_payments.payment_retry, method: retry, alias: retry_a_payment }
+
+    app.siapep_gocardless_bundle_payouts:
+       class: SIAPEP\GocardlessBundle\Services\payouts
+       arguments: ["@doctrine.orm.entity_manager"]
+       tags:
+         - { name: siapep_gocardless_bundle_payouts.payout_lists, method: lists, alias: list_payouts }
+         - { name: siapep_gocardless_bundle_payouts.payout_show, method: show, alias: show_a_payout }
+
+    app.siapep_gocardless_bundle_refunds:
+       class: SIAPEP\GocardlessBundle\Services\refunds
+       arguments: ["@doctrine.orm.entity_manager"]
+       tags:
+         - { name: siapep_gocardless_bundle_refunds.refunds_create, method: create, alias: create_refund }
+         - { name: siapep_gocardless_bundle_refunds.refunds_lists, method: lists, alias: list_refunds }
+         - { name: siapep_gocardless_bundle_refunds.refunds_show, method: show, alias: show_a_refund }
+         - { name: siapep_gocardless_bundle_refunds.refunds_update, method: update, alias: update_a_refund }
+
+    app.siapep_gocardless_bundle_subscriptions:
+       class: SIAPEP\GocardlessBundle\Services\subscriptions
+       arguments: ["@doctrine.orm.entity_manager"]
+       tags:
+         - { name: siapep_gocardless_bundle_subscriptions.subscriptions_create, method: create, alias: create_subscription }
+         - { name: siapep_gocardless_bundle_subscriptions.subscriptions_lists, method: lists, alias: list_subscriptions }
+         - { name: siapep_gocardless_bundle_subscriptions.subscriptions_show, method: show, alias: show_a_subscription }
+         - { name: siapep_gocardless_bundle_subscriptions.subscriptions_update, method: update, alias: update_a_subscription }
+         - { name: siapep_gocardless_bundle_subscriptions.subscriptions_update, method: cancel, alias: cancel_a_subscription }
+
+    app.siapep_gocardless_bundle_events:
+       class: SIAPEP\GocardlessBundle\Services\events
+       arguments: ["@doctrine.orm.entity_manager"]
+       tags:
+         - { name: siapep_gocardless_bundle_events.events_lists, method: lists, alias: list_events }
+         - { name: siapep_gocardless_bundle_events.events_show, method: show, alias: show_an_event }
+         - { name: siapep_gocardless_bundle_events.events_webhook, method: webhook, alias: webhook }
+
+# Twig Configuration
+twig:
+    globals:
+        siapep_gocardless_bundle_customers: "@app.siapep_gocardless_bundle_customers"
+        siapep_gocardless_bundle_customer_bank_account: "@app.siapep_gocardless_bundle_customer_bank_account"
+        siapep_gocardless_bundle_mandates: "@app.siapep_gocardless_bundle_mandates"
+        siapep_gocardless_bundle_payments: "@app.siapep_gocardless_bundle_payments"
+        siapep_gocardless_bundle_payouts: "@app.siapep_gocardless_bundle_payouts"
+        siapep_gocardless_bundle_refunds: "@app.siapep_gocardless_bundle_refunds"
+        siapep_gocardless_bundle_subscriptions: "@app.siapep_gocardless_bundle_subscriptions"
+        siapep_gocardless_bundle_events: "@app.siapep_gocardless_bundle_events"
+
+

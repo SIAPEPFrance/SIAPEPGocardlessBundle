@@ -1,0 +1,28 @@
+{
+    "name": "siapep/gocardless-bundle",
+    "type": "project",
+    "description": "Integration of gocardless's API into Symfony by SIAPEP France",
+    "keywords":[
+        "gocardless",
+        "symfony2",
+        "siapep"
+    ],
+    "homepage":"https://github.com/SIAPEPFrance/SIAPEPGocardlessBundle.git",
+    "license": "MIT",
+    "authors":[
+        {
+            "name":"SIAPEP France - Jean-Donald Roselin",
+            "email":"contact@siapep.fr"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/symfony": "2.8.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "SIAPEP\\GocardlessBundle": ""
+        }
+    },
+    "target-dir": "SIAPEP/GocardlessBundle"
+}

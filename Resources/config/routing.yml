@@ -1,0 +1,4 @@
+siapep_ride_bundle:
+    resource: "@SIAPEPRideBundle/Resources/config/routing/ride.yml"
+    prefix:   /dashboard/appregion/ride
+

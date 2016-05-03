@@ -1,0 +1,100 @@
+siapep_ride_bundle:
+    pattern:  /
+    defaults: { _controller: "SIAPEPRideBundle:Ride:index" }
+
+siapep_ride_bundle_booked:
+    pattern:  /booked
+    defaults: { _controller: "SIAPEPRideBundle:Ride:reservationRides" }
+
+siapep_ride_bundle_direct:
+    pattern:  /direct
+    defaults: { _controller: "SIAPEPRideBundle:Ride:directRides" }
+
+siapep_ride_bundle_archived:
+    pattern:  /archived
+    defaults: { _controller: "SIAPEPRideBundle:Ride:archivedRides" }
+
+siapep_ride_bundle_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "SIAPEPRideBundle:Ride:show" }
+
+siapep_ride_bundle_show_booked:
+    pattern:  /booked/{id}/show
+    defaults: { _controller: "SIAPEPRideBundle:Ride:showBookedRide" }
+
+siapep_ride_bundle_show_direct:
+    pattern:  /direct/{id}/show
+    defaults: { _controller: "SIAPEPRideBundle:Ride:showDirectRide" }
+
+siapep_ride_bundle_show_archived:
+    pattern:  /archived/{id}/show
+    defaults: { _controller: "SIAPEPRideBundle:Ride:showArchivedRide" }
+
+siapep_ride_bundle_new:
+    pattern:  /new
+    defaults: { _controller: "SIAPEPRideBundle:Ride:new" }
+
+siapep_ride_bundle_new_booked:
+    pattern:  /booked/new
+    defaults: { _controller: "SIAPEPRideBundle:Ride:newBookedRide" }
+
+siapep_ride_bundle_new_direct:
+    pattern:  /direct/new
+    defaults: { _controller: "SIAPEPRideBundle:Ride:newDirectRide" }
+
+siapep_ride_bundle_create:
+    pattern:  /create
+    defaults: { _controller: "SIAPEPRideBundle:Ride:create" }
+    requirements: { _method: post }
+
+siapep_ride_bundle_create_booked:
+    pattern:  /booked/create
+    defaults: { _controller: "SIAPEPRideBundle:Ride:createBookedRide" }
+    requirements: { _method: post }
+
+siapep_ride_bundle_create_direct:
+    pattern:  /direct/create
+    defaults: { _controller: "SIAPEPRideBundle:Ride:createDirectRide" }
+    requirements: { _method: post }
+
+siapep_ride_bundle_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "SIAPEPRideBundle:Ride:edit" }
+
+siapep_ride_bundle_edit_booked:
+    pattern:  /booked/{id}/edit
+    defaults: { _controller: "SIAPEPRideBundle:Ride:editBookedRide" }
+
+siapep_ride_bundle_edit_direct:
+    pattern:  /direct/{id}/edit
+    defaults: { _controller: "SIAPEPRideBundle:Ride:editDirectRide" }
+
+siapep_ride_bundle_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "SIAPEPRideBundle:Ride:update" }
+    requirements: { _method: post|put }
+
+siapep_ride_bundle_update_booked:
+    pattern:  /booked/{id}/update
+    defaults: { _controller: "SIAPEPRideBundle:Ride:updateBookedRide" }
+    requirements: { _method: post|put }
+
+siapep_ride_bundle_update_direct:
+    pattern:  /direct/{id}/update
+    defaults: { _controller: "SIAPEPRideBundle:Ride:updateDirectRide" }
+    requirements: { _method: post|put }
+
+siapep_ride_bundle_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "SIAPEPRideBundle:Ride:delete" }
+    requirements: { _method: post|delete }
+
+siapep_ride_bundle_delete_booked:
+    pattern:  /booked/{id}/delete
+    defaults: { _controller: "SIAPEPRideBundle:Ride:deleteBookedRide" }
+    requirements: { _method: post|delete }
+
+siapep_ride_bundle_delete_direct:
+    pattern:  /direct/{id}/delete
+    defaults: { _controller: "SIAPEPRideBundle:Ride:deleteDirectRide" }
+    requirements: { _method: post|delete }
