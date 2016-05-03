@@ -3,7 +3,7 @@ SIAPEP Gocardless's Bundle
 
 Integration of the Gocardless API's into Symfony2.
 
-* Create a parameter called gocardless_enterprise with your gocardless configuration:
+* Create a parameter called siapep_gocardless_bundle with your gocardless configuration:
 ```
 parameters:
     siapep_gocardless_bundle:
@@ -38,16 +38,11 @@ insert datas in existing models (E.g : if the user use FOSUserbundle to manage h
 
 The only entity wich have been mapped is "Event".
 
-Documentation and help can be found here:
-
-https://developer.gocardless.com/pro/2015-07-06 (for versioned docs)
-
-https://help.gocardless.com (for GoCardless support contact details)
-
 Example of use :
 
-If you want to create a New User from a controller, just do that :
+* If you want to create a New User from a controller, just do that :
 
+```
     public function createCustomerOnGoCardlessAction()
     {
         $gocardless = $this->get('app.siapep_gocardless_bundle_customers');
@@ -110,7 +105,19 @@ If you want to create a New User from a controller, just do that :
                 }
               }
     }
+```
 
-    Each request to the Gocardless's API returns a JSON data
-    (with a sent datas node "datas_sent" and a received datas node "message")
-    so you can debug very easily.
+Each request to the Gocardless's API returns a JSON data
+(with a sent datas node "datas_sent" and a received datas node "message")
+so you can debug very easily.
+
+
+Documentation and help can be found here:
+
+https://developer.gocardless.com/pro/2015-07-06 (for versioned docs)
+
+https://help.gocardless.com (for GoCardless support contact details)
+
+For more information about us:
+
+http://www.siapep.fr
