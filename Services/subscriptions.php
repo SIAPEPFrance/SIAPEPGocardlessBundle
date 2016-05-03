@@ -10,19 +10,20 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Doctrine\ORM\EntityManager;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class subscriptions
 {
 
-    public function __construct(EntityManager $em)
+    public function __construct(EntityManager $em, ContainerInterface $container)
     {
         $this->em = $em;
-        $this->access_token = 'LoqPnG59GyomgvxcBkBN_Ywty512bVUC9aSHK9h-';
-        $this->url = 'https://api-sandbox.gocardless.com/subscriptions';
-        $this->gocardless_version = '2015-07-06';
+        $this->container = $container;
+        $this->access_token = $this->container->getParameter('siapep_gocardless_bundle.token');
+        $this->url = $this->container->getParameter('siapep_gocardless_bundle.baseUrl').'/subscriptions';
+        $this->gocardless_version = $this->container->getParameter('siapep_gocardless_bundle.gocardlessVersion');
     }
 
-    /* TESTED NO*/
     public function create($data)
     {
         /*
@@ -52,14 +53,12 @@ class subscriptions
         return $this->GoCardlessConnect($fields);
     }
 
-    /* TESTED NO*/
     /*fields or cursors = after/before/created_at[gt]/created_at[gte]/created_at[lt]/created_at[lte]/customer/limit/mandate*/
     public function lists($fields=array())
     {
         return $this->GoCardlessConnect($fields, 'GET');
     }
 
-    /* TESTED NO*/
     public function show($subscriptionId)
     {
         
@@ -71,7 +70,6 @@ class subscriptions
         return $this->GoCardlessConnect($fields, 'GET');
     }
 
-    /* TESTED NO*/
     public function update($subscriptionId,$data=array())
     {
         /*
@@ -91,7 +89,7 @@ class subscriptions
 
         return $this->GoCardlessConnect($fields, 'PUT');
     }
-    /* TESTED NO*/
+
     public function cancel($subscriptionId,$data=array())
     {
         /*

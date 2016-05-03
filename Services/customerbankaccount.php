@@ -10,16 +10,18 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Doctrine\ORM\EntityManager;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class customerbankaccount
 {
 
-    public function __construct(EntityManager $em)
+    public function __construct(EntityManager $em, ContainerInterface $container)
     {
         $this->em = $em;
-        $this->access_token = 'LoqPnG59GyomgvxcBkBN_Ywty512bVUC9aSHK9h-';
-        $this->url = 'https://api-sandbox.gocardless.com/customer_bank_accounts';
-        $this->gocardless_version = '2015-07-06';
+        $this->container = $container;
+        $this->access_token = $this->container->getParameter('siapep_gocardless_bundle.token');
+        $this->url = $this->container->getParameter('siapep_gocardless_bundle.baseUrl').'/customer_bank_accounts';
+        $this->gocardless_version = $this->container->getParameter('siapep_gocardless_bundle.gocardlessVersion');
     }
 
     public function create($data)
@@ -65,7 +67,6 @@ class customerbankaccount
         return $this->GoCardlessConnect($fields, 'GET');
     }
 
-    /*Tested : OK*/
     public function update($customerBankId,$data=array())
     {
         /*

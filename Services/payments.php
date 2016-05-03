@@ -10,19 +10,20 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Doctrine\ORM\EntityManager;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class payments
 {
 
-    public function __construct(EntityManager $em)
+    public function __construct(EntityManager $em, ContainerInterface $container)
     {
         $this->em = $em;
-        $this->access_token = 'LoqPnG59GyomgvxcBkBN_Ywty512bVUC9aSHK9h-';
-        $this->url = 'https://api-sandbox.gocardless.com/payments';
-        $this->gocardless_version = '2015-07-06';
+        $this->container = $container;
+        $this->access_token = $this->container->getParameter('siapep_gocardless_bundle.token');
+        $this->url = $this->container->getParameter('siapep_gocardless_bundle.baseUrl').'/payments';
+        $this->gocardless_version = $this->container->getParameter('siapep_gocardless_bundle.gocardlessVersion');
     }
 
-    /* TESTED NO*/
     public function create($data)
     {
         /*
@@ -48,7 +49,6 @@ class payments
         return $this->GoCardlessConnect($fields);
     }
 
-    /* TESTED NO*/
     /*fields or cursors = after/before/created_at[gt]/created_at[gte]/created_at[lt]/created_at[lte]/creditor/customer/limit/mandate/status/subscription*/
     public function lists($fields=array())
     {
@@ -65,7 +65,6 @@ class payments
         return $this->GoCardlessConnect($fields, 'GET');
     }
 
-    /* TESTED NO*/
     public function show($paymentId)
     {
         
@@ -77,7 +76,6 @@ class payments
         return $this->GoCardlessConnect($fields, 'GET');
     }
 
-    /* TESTED NO*/
     public function update($paymentId,$data=array())
     {
         /*
@@ -96,7 +94,7 @@ class payments
 
         return $this->GoCardlessConnect($fields, 'PUT');
     }
-    /* TESTED NO*/
+
     public function cancel($paymentId,$data=array())
     {
         /*
@@ -115,7 +113,7 @@ class payments
 
         return $this->GoCardlessConnect($fields);
     }
-    /* TESTED NO*/
+
     public function retry($paymentId,$data=array())
     {
         /*
