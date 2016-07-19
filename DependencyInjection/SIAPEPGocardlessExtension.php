@@ -22,7 +22,30 @@ class SIAPEPGocardlessExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
+        $this->bindParameter($container, 'siapep_gocardless_bundle', $config);
+
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
+    }
+    
+    /**
+     * Set the given parameters to the given container
+     * @param ContainerBuilder $container
+     * @param string $name
+     * @param mixed $value
+     */
+    private function bindParameter(ContainerBuilder $container, $name, $value)
+    {
+        if( is_array($value) )
+        {
+            foreach( $value as $index => $val )
+            {
+                $this->bindParameter($container, $name.'.'.$index, $val);
+            }
+        }
+        else
+        {
+            $container->setParameter($name, $value);
+        } 
     }
 }

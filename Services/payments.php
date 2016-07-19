@@ -19,9 +19,9 @@ class payments
     {
         $this->em = $em;
         $this->container = $container;
-        $this->access_token = $this->container->getParameter('siapep_gocardless_bundle.token');
-        $this->url = $this->container->getParameter('siapep_gocardless_bundle.baseUrl').'/payments';
-        $this->gocardless_version = $this->container->getParameter('siapep_gocardless_bundle.gocardlessVersion');
+        $this->access_token = $this->container->getParameter('siapep_gocardless_bundle')['token'];
+        $this->url = $this->container->getParameter('siapep_gocardless_bundle')['baseUrl'].'/payments';
+        $this->gocardless_version = $this->container->getParameter('siapep_gocardless_bundle')['gocardlessVersion']; 
     }
 
     public function create($data)

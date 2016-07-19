@@ -19,9 +19,10 @@ class customers
     {
         $this->em = $em;
         $this->container = $container;
-        $this->access_token = $this->container->getParameter('siapep_gocardless_bundle.token');
-        $this->url = $this->container->getParameter('siapep_gocardless_bundle.baseUrl').'/customers';
-        $this->gocardless_version = $this->container->getParameter('siapep_gocardless_bundle.gocardlessVersion');
+        $this->access_token = $this->container->getParameter('siapep_gocardless_bundle')['token'];
+        $this->url = $this->container->getParameter('siapep_gocardless_bundle')['baseUrl'].'/customers';
+        $this->gocardless_version = $this->container->getParameter('siapep_gocardless_bundle')['gocardlessVersion'];
+        $a=0;
     }
 
 

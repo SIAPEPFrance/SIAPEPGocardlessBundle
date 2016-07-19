@@ -19,9 +19,9 @@ class payouts
     {
         $this->em = $em;
         $this->container = $container;
-        $this->access_token = $this->container->getParameter('siapep_gocardless_bundle.token');
-        $this->url = $this->container->getParameter('siapep_gocardless_bundle.baseUrl').'/payouts';
-        $this->gocardless_version = $this->container->getParameter('siapep_gocardless_bundle.gocardlessVersion');
+        $this->access_token = $this->container->getParameter('siapep_gocardless_bundle')['token'];
+        $this->url = $this->container->getParameter('siapep_gocardless_bundle')['baseUrl'].'/payouts';
+        $this->gocardless_version = $this->container->getParameter('siapep_gocardless_bundle')['gocardlessVersion']; 
     }
 
     /*fields or cursors = after/before/created_at[gt]/created_at[gte]/created_at[lt]/created_at[lte]/creditor/creditor_bank_account/limit/status*/

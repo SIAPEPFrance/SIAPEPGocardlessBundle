@@ -76,18 +76,6 @@ services:
          - { name: siapep_gocardless_bundle_events.events_show, method: show, alias: show_an_event }
          - { name: siapep_gocardless_bundle_events.events_webhook, method: webhook, alias: webhook }
 
-# Twig Configuration
-twig:
-    globals:
-        siapep_gocardless_bundle_customers: "@app.siapep_gocardless_bundle_customers"
-        siapep_gocardless_bundle_customer_bank_account: "@app.siapep_gocardless_bundle_customer_bank_account"
-        siapep_gocardless_bundle_mandates: "@app.siapep_gocardless_bundle_mandates"
-        siapep_gocardless_bundle_payments: "@app.siapep_gocardless_bundle_payments"
-        siapep_gocardless_bundle_payouts: "@app.siapep_gocardless_bundle_payouts"
-        siapep_gocardless_bundle_refunds: "@app.siapep_gocardless_bundle_refunds"
-        siapep_gocardless_bundle_subscriptions: "@app.siapep_gocardless_bundle_subscriptions"
-        siapep_gocardless_bundle_events: "@app.siapep_gocardless_bundle_events"
-
 #Parameter Configuration
 parameters:
     siapep_gocardless_bundle:
@@ -96,4 +84,16 @@ parameters:
         webhook_secret: REPLACE_WITH_YOUR_WEBHOOK_SECRET
         creditorId: REPLACE_WITH_YOUR_CREDITOR_ID
         token: REPLACE_WITH_YOUR_TOKEN
+
+# Twig Configuration
+#twig:
+#    globals: 
+#        siapep_gocardless_bundle_customers: "@app.siapep_gocardless_bundle_customers"
+#        siapep_gocardless_bundle_customer_bank_account: "@app.siapep_gocardless_bundle_customer_bank_account"
+#        siapep_gocardless_bundle_mandates: "@app.siapep_gocardless_bundle_mandates"
+#        siapep_gocardless_bundle_payments: "@app.siapep_gocardless_bundle_payments"
+#        siapep_gocardless_bundle_payouts: "@app.siapep_gocardless_bundle_payouts"
+#        siapep_gocardless_bundle_refunds: "@app.siapep_gocardless_bundle_refunds"
+#        siapep_gocardless_bundle_subscriptions: "@app.siapep_gocardless_bundle_subscriptions"
+#        siapep_gocardless_bundle_events: "@app.siapep_gocardless_bundle_events"
 
