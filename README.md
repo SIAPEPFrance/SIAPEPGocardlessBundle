@@ -33,10 +33,8 @@ This services includes a method for validating the signature of any webhooks rec
 The following Model will be mapped to your Database automatically:
 * Event
 
-This Bundle has not been created with some entities as (Customer, CustomerBankAccount, Mandate, Payment) to let the developper be free to
-insert datas in existing models (E.g : if the user use FOSUserbundle to manage his users, maybe he will simply want to store user's Id into "user" table).
-
-The only entity wich have been mapped is "Event".
+This Bundle has been created with some entities as (Customer, CustomerBankAccount, Event, Mandate, Payment, Subscription).
+Theses entities are dependant to only one User entity "column nammed local_user". In my case this User entity is called SIAPEP\UserBundle\Entity\User. You just have to replace (in all entities of SIAPEPGocadlessBundle) it by your own User entity e.g : "FOS\UserBundle\Entity\User". Then all is ready to use :).
 
 Example of use :
 
