@@ -13,7 +13,7 @@ use Doctrine\ORM\EntityManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use SIAPEP\GocardlessBundle\Entity\Event;
 
-class events
+class Events
 {
 
     public function __construct(EntityManager $em, ContainerInterface $container)

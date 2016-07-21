@@ -2,7 +2,7 @@
 services:
 
     app.siapep_gocardless_bundle_customers:
-       class: SIAPEP\GocardlessBundle\Services\customers
+       class: SIAPEP\GocardlessBundle\Services\Customers
        arguments: ["@doctrine.orm.entity_manager","@service_container"]
        tags:
          - { name: siapep_gocardless_bundle_customers.customer_create, method: create, alias: create_customer }
@@ -11,7 +11,7 @@ services:
          - { name: siapep_gocardless_bundle_customers.customer_update, method: update, alias: update_a_customer }
 
     app.siapep_gocardless_bundle_customer_bank_account:
-       class: SIAPEP\GocardlessBundle\Services\customerbankaccount
+       class: SIAPEP\GocardlessBundle\Services\CustomerBankAccount
        arguments: ["@doctrine.orm.entity_manager","@service_container"]
        tags:
          - { name: siapep_gocardless_bundle_customer_bank_account.customer_bank_account_create, method: create, alias: create_customer_bank_account }
@@ -21,7 +21,7 @@ services:
          - { name: siapep_gocardless_bundle_customer_bank_account.customer_bank_account_disable, method: disable, alias: disable_a_customer_bank_account }
 
     app.siapep_gocardless_bundle_mandates:
-       class: SIAPEP\GocardlessBundle\Services\mandates
+       class: SIAPEP\GocardlessBundle\Services\Mandates
        arguments: ["@doctrine.orm.entity_manager","@service_container"]
        tags:
          - { name: siapep_gocardless_bundle_mandates.mandate_create, method: create, alias: create_mandate }
@@ -32,7 +32,7 @@ services:
          - { name: siapep_gocardless_bundle_mandates.mandate_reinstate, method: reinstate, alias: reinstate_a_mandate }
 
     app.siapep_gocardless_bundle_payments:
-       class: SIAPEP\GocardlessBundle\Services\payments
+       class: SIAPEP\GocardlessBundle\Services\Payments
        arguments: ["@doctrine.orm.entity_manager","@service_container"]
        tags:
          - { name: siapep_gocardless_bundle_payments.payment_create, method: create, alias: create_payment }
@@ -43,14 +43,14 @@ services:
          - { name: siapep_gocardless_bundle_payments.payment_retry, method: retry, alias: retry_a_payment }
 
     app.siapep_gocardless_bundle_payouts:
-       class: SIAPEP\GocardlessBundle\Services\payouts
+       class: SIAPEP\GocardlessBundle\Services\Payouts
        arguments: ["@doctrine.orm.entity_manager","@service_container"]
        tags:
          - { name: siapep_gocardless_bundle_payouts.payout_lists, method: lists, alias: list_payouts }
          - { name: siapep_gocardless_bundle_payouts.payout_show, method: show, alias: show_a_payout }
 
     app.siapep_gocardless_bundle_refunds:
-       class: SIAPEP\GocardlessBundle\Services\refunds
+       class: SIAPEP\GocardlessBundle\Services\Refunds
        arguments: ["@doctrine.orm.entity_manager","@service_container"]
        tags:
          - { name: siapep_gocardless_bundle_refunds.refunds_create, method: create, alias: create_refund }
@@ -59,7 +59,7 @@ services:
          - { name: siapep_gocardless_bundle_refunds.refunds_update, method: update, alias: update_a_refund }
 
     app.siapep_gocardless_bundle_subscriptions:
-       class: SIAPEP\GocardlessBundle\Services\subscriptions
+       class: SIAPEP\GocardlessBundle\Services\Subscriptions
        arguments: ["@doctrine.orm.entity_manager","@service_container"]
        tags:
          - { name: siapep_gocardless_bundle_subscriptions.subscriptions_create, method: create, alias: create_subscription }
@@ -69,7 +69,7 @@ services:
          - { name: siapep_gocardless_bundle_subscriptions.subscriptions_update, method: cancel, alias: cancel_a_subscription }
 
     app.siapep_gocardless_bundle_events:
-       class: SIAPEP\GocardlessBundle\Services\events
+       class: SIAPEP\GocardlessBundle\Services\Events
        arguments: ["@doctrine.orm.entity_manager","@service_container"]
        tags:
          - { name: siapep_gocardless_bundle_events.events_lists, method: lists, alias: list_events }

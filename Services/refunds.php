@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class refunds
+class Refunds
 {
 
     public function __construct(EntityManager $em, ContainerInterface $container)
